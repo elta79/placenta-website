@@ -103,7 +103,7 @@ function Contact() {
         console.log(service)
         console.log(condition)
 
-        emailjs.sendForm('contact_service', 'contact_form', form.current, `${process.env.REACT_APP_EMAIL_KEY}`)
+        emailjs.sendForm('contact_service', 'contact_form', form.current, 'Ksv0B-69iF1uQVgg1')
             .then((result) => {
                 console.log(result.text)
             }, (error) => {
