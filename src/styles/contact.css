@@ -1,0 +1,241 @@
+body {
+    height: 100%;
+    background:#c4bdac;
+    margin: 0;    
+}
+.container--form {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    background: #e4dac2;    
+    justify-items: center;
+}
+.contact--image {   
+    aspect-ratio: 1 / 1;
+    width: 100%;    
+}
+.contactInfo {
+    grid-column-start: 1;
+    grid-row-start: 1;      
+    margin: 20px;
+    padding:20px 30px;
+}
+.contact--content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:#c4bdac;
+    max-width: 90%;
+    height: 20vh;
+    border-radius: 10px;
+    padding: 20px;
+}
+.contact--content a {
+    text-decoration: none;
+    color: #A84E55;
+}
+.contact--content a:hover {    
+    color: ivory;
+}
+.contact--link {
+    font-size: 20px;
+}
+#questions {
+    color:ivory;   
+    font-size: 30px;
+    text-shadow: 1px 1px 2px #A84E55;
+    text-align: left;
+    font-size: calc(25px + 1vw);
+}
+
+#idai {
+    font-size: calc(15px + 1vw);
+}
+.title--contact {
+    font-size: 30px;
+    padding: 20px 0 25px 0;
+}
+form {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    display: grid;
+    background: #D8C1B0;
+    margin: 20px;
+    padding:20px 30px;    
+    border-radius: 20px;
+    font-size: 16px;
+    max-width:900px;    
+}
+.grid-container-name {
+    display: grid;
+    column-gap: 15px;
+}
+.firstName {
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+.lastName {
+    grid-column-start: 2;
+    grid-row-start: 2;
+} 
+.grid-container-address {
+    display: grid;
+    column-gap: 15px ;
+    grid-template-columns: 2fr 60px 1fr;    
+}
+.city{
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+.state {
+    grid-column-start: 2;
+    grid-row-start: 2;    
+}
+.zip {
+    grid-column-start:3;
+    grid-row-start: 2;    
+}
+hr {
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+    border: 1px solid gray;
+}
+input {    
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    background: #f4eee1;    
+    font-size:20px;
+}
+.comments {
+    padding: 12px;
+    margin: 20px 0;
+    border-radius: 10px;
+    border: none;
+    background: #f4eee1;    
+    font-size:16px;
+}
+input:valid, .comments:valid {
+    background: #f4eee1;  
+}
+input:focus, .comments:focus {
+    outline: 1px dotted gray;
+}
+span {
+    padding-bottom: 15px ;    
+}
+p {
+    font-size: 16px;
+    line-height: 30px;
+}
+.edd {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+.service, .condition {
+    border: none;
+    padding-bottom: 20px;
+}
+select {
+    background: #f4eee1;
+    border-radius: 10px;
+    border: none;
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    color: black;
+}
+select:focus{
+    outline: 1px dotted gray;
+}
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    padding: 20px 0;
+}
+button {
+    padding: 15px 0px;
+    font-size: 20px;
+    border: 1px solid #4A3347;
+    border-radius: 10px;
+    background: #c4bdac;
+    width: 30%;
+}
+button:hover {
+    background: #4A3347;
+    color: ivory;
+}
+
+
+
+
+
+/* <--screens under 1020px --> */
+@media only screen and (max-width: 1020px) {
+    .contact--image {   
+        aspect-ratio: 1 / 1;    
+    }
+    .firstName{
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+    #firstName{
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+    .lastName{
+        grid-column-start: 1;
+        grid-row-start: 4;
+    }
+    #lastName{
+        grid-column-start: 1;
+        grid-row-start: 3;
+    }
+    .grid-container-address {
+        display: grid;
+        column-gap: 15px ;        
+        grid-template-columns: 100% 100% 100%;        
+    }
+    .city{
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+    #city{
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+    .state{
+        grid-column-start: 1;
+        grid-row-start: 4;
+    }
+    #state{
+        grid-column-start: 1;
+        grid-row-start: 3;
+    }
+    .zip{
+        grid-column-start: 1;
+        grid-row-start: 6;
+    }
+    #zip{
+        grid-column-start: 1;
+        grid-row-start: 5;
+    }
+    .container--form{
+        grid-template-columns: 100%;
+        
+    }
+    .contactInfo {
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+    form {
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+    button {
+        width: 100%;
+    }
+} 

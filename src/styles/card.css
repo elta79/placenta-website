@@ -1,0 +1,24 @@
+
+.card {    
+    padding: 10px ;
+    aspect-ratio: 1 / 1.5;
+}
+.card--image {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 0;
+}
+.card--content {
+    background: #f4eee1; 
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 20px 15px;
+    margin-top: 0;   
+}
+.card--price {
+    font-weight: 600;
+    padding-bottom: 10px;;
+}
