@@ -2,12 +2,13 @@
 
 import React, { useState, useRef } from 'react'
 import '../styles/contact.css'
-import Select from 'react-select';
+import Select from 'react-select'
 import emailjs from '@emailjs/browser'
-
+import ReCAPTCHA from 'react-google-recaptcha'
 
 function Contact() {
-
+    
+    const recaptchaRef = useRef(null)  
     const form = useRef()
 
     const options = [
@@ -23,8 +24,7 @@ function Contact() {
         { value: 'diabetes', label: 'Diabetes' },
         { value: 'gest_Diabetes', label: 'Gestational diabetes' },
         { value: 'hepatitis', label: 'Hepatitis A, B, C' },
-        { value: 'other', label: 'Other' },
-        
+        { value: 'other', label: 'Other' },        
     ]
 
     const customStyles = {
@@ -47,10 +47,9 @@ function Contact() {
             }
         })
     }
+    const [captchaValidated, setCaptchaValidated] = useState(false)
     const [service, setService] = useState([])
-
     const [condition, setCondition] = useState([])
-
     const [formData, setFormData] = useState(
         {
             firstName:'',
@@ -67,8 +66,8 @@ function Contact() {
             comments:''  
         }
     )
-    function handleChangeService(selectedOption){
-        
+
+    function handleChangeService(selectedOption){        
         setService(prevService => {
             return{
                 ...prevService,
@@ -83,11 +82,9 @@ function Contact() {
                 selectedOption
             }
         })
-    }
-    function handleChange(event){
-        
+    }   
+    function handleChange(event){        
         const { name, value, type } = event.target;
-
         setFormData(prevFormData => {
             return{
                 ...prevFormData,
@@ -95,23 +92,29 @@ function Contact() {
             }
         })
     }
-    
+    function validateRecaptcha(){
+        if (recaptchaRef.current.getValue()) {
+            setCaptchaValidated(true)
+        }
+    }
     function handleSubmit(event){
-        event.preventDefault()
-        
-        console.log(formData)
-        console.log(service)
-        console.log(condition)
-
+        event.preventDefault()                
+        // console.log(formData)
+        // console.log(service)
+        // console.log(condition)        
         emailjs.sendForm('contact_service', 'contact_form', form.current, 'Ksv0B-69iF1uQVgg1')
             .then((result) => {
                 console.log(result.text)
             }, (error) => {
                 console.log(error.text)
-            })
-        alert('Email sent')       
-    }
-    
+            })        
+        if (captchaValidated){
+            alert('Email sent')  
+        }else {
+            alert('Please confirm you are not a robot')
+        }           
+        recaptchaRef.current.reset()         
+    }    
   return (
     <>
         <div className='container--form'>
@@ -135,8 +138,7 @@ function Contact() {
                         value={formData.lastName}
                         onChange={handleChange}
                         required
-                    />
-                    
+                    />                    
                 </div>  
                 <span>Email</span>
                 <input
@@ -165,8 +167,7 @@ function Contact() {
                     value={formData.address}
                     onChange={handleChange}
                     required
-                />
-                
+                />                
                 <div className='grid-container-address'>
                     <span id='city'>City</span>
                     <input
@@ -204,8 +205,7 @@ function Contact() {
                     value={formData.edd}
                     onChange={handleChange}
                     required
-                />
-                         
+                />                         
                 <hr />
                 <br />
                 <span>Please choose at least one service:</span>
@@ -227,9 +227,7 @@ function Contact() {
                     value={formData.condition}
                     isMulti
                     styles={customStyles}
-                />
-                
-
+                />    
                 <span>Where do you plan to give birth?:</span>
                 <select 
                     id='location'
@@ -241,7 +239,6 @@ function Contact() {
                     <option value='nch'>North Collier Hospital</option>
                     <option value='healthPark'>Health Park</option>
                 </select>
-
                 <span>What is your Baby's sex?:</span>
                 <select 
                     id='sex'
@@ -259,13 +256,16 @@ function Contact() {
                     name='comments'
                     className='comments'
                     placeholder='Anything else you would like me to know?'
-                />
-                
+                />                
                 <div className='button'>
-                    <button>Submit</button>
-                </div>
-                
-                
+                    <button id='button--submit'>Submit</button>
+                </div>                
+                <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey='6Lf-pQsmAAAAAG1zA0EyZZpURKQ6EpcllML09vMN'                    
+                    id='recaptcha'
+                    onChange={validateRecaptcha} 
+                />                
             </form>
             <div className='contactInfo'>
             <img src='../images/upclose-placenta.jpeg'alt='placenta and cord' className='contact--image'/>  
