@@ -1,6 +1,7 @@
 // HIDE KEY BEFORE GITHUB
 
 import React, { useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../styles/contact.css'
 import Select from 'react-select'
 import emailjs from '@emailjs/browser'
@@ -10,7 +11,7 @@ function Contact() {
     
     const recaptchaRef = useRef(null)  
     const form = useRef()
-
+    const navigate = useNavigate()    
     const options = [
         { value: 'Encapsulation', label: 'Encapsulation  $250' },
         { value: 'Print_Blood', label: 'Blood Print  $15' },
@@ -114,6 +115,8 @@ function Contact() {
             alert('Please confirm you are not a robot')
         }           
         recaptchaRef.current.reset()         
+
+        navigate('/thankyou')
     }    
   return (
     <>

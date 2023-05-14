@@ -1,0 +1,27 @@
+.container--thankyou{
+    min-height: 100vh;
+    /* font-size: 3vw; */
+}
+
+.card--thankyou {
+    background-color: ivory;
+    margin: 30vh auto;
+    padding: 40px;
+    line-height: 40px;
+    max-width: 500px;
+}
+
+.container--thankyou h1 {
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.container--thankyou a {
+    text-decoration: none;
+    text-align: center;
+    padding-left: 25px;
+    color: #4A3347;
+    text-shadow: 0.5px 0.5px 0.5px #A84E55;
+    white-space: nowrap ;
+    font-size: 20px;
+}
