@@ -106,6 +106,7 @@ function Contact() {
         emailjs.sendForm('contact_service', 'contact_form', form.current, 'Ksv0B-69iF1uQVgg1')
             .then((result) => {
                 console.log(result.text)
+                navigate('/thankyou')
             }, (error) => {
                 console.log(error.text)
             })        
@@ -116,7 +117,7 @@ function Contact() {
         }           
         recaptchaRef.current.reset()         
 
-        navigate('/thankyou')
+        
     }    
   return (
     <>
