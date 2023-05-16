@@ -1,21 +1,51 @@
 .container--thankyou{
     min-height: 100vh;
-    /* font-size: 3vw; */
 }
 
+  .border {
+    position: relative;
+    margin: 200px auto ;
+	max-width: 550px;
+	height: 100%;
+	background: linear-gradient(0deg, #000, #272727);
+}
+.border:before, .border:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #A84E55, #4A3347, ivory, #454366);
+	background-size: 400%;
+	min-width: calc(100% + 4px);
+	min-height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+.border:after {
+	filter: blur(50px);
+}
 .card--thankyou {
     background-color: ivory;
-    margin: 30vh auto;
+    margin: 10vh auto;
     padding: 40px;
     line-height: 40px;
     max-width: 500px;
 }
-
 .container--thankyou h1 {
     padding-bottom: 15px;
     text-align: center;
 }
-
 .container--thankyou a {
     text-decoration: none;
     text-align: center;
@@ -24,4 +54,7 @@
     text-shadow: 0.5px 0.5px 0.5px #A84E55;
     white-space: nowrap ;
     font-size: 20px;
+}
+.signature {
+    text-align: right;
 }

@@ -275,8 +275,8 @@ function Contact() {
                 <div className='contact--content' >          
                     <h4 id='questions'>Questions?</h4>
                     <p id='idai'>Idai Martinez</p>
-                    <a href='tel:239-289-3414' className='contact--link'>786-365-3291</a>
-                    <a href='mailto:arnoldfamilyendeavors@gmail.com' className='contact--link'>placentasbyidai@gmail.com</a>
+                    <a href='tel:786-365-3291' className='contact--link'>786-365-3291</a>
+                    <a href='mailto:placentasbyidai@gmail.com' className='contact--link'>placentasbyidai@gmail.com</a>
                 </div>
             </div>
         </div>
