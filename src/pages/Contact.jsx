@@ -103,7 +103,7 @@ function Contact() {
         // console.log(formData)
         // console.log(service)
         // console.log(condition)        
-        emailjs.sendForm('contact_service', 'contact_form', form.current, 'Ksv0B-69iF1uQVgg1')
+        emailjs.sendForm('contact_service', 'contact_form', form.current, 'kr3xJ0AO9pjywN-mQ')
             .then((result) => {
                 console.log(result.text)
                 navigate('/thankyou')
