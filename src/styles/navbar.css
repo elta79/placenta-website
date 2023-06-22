@@ -43,7 +43,10 @@
 /* <--Screens 600px or less--> */
 @media only screen and (max-width: 600px) {
     .navbar {
-        transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out; 
+    }
+    .navbar h3 {
+        margin-left: 0;
     }
     .toggleButton {
         display: flex;
@@ -80,7 +83,7 @@
         padding-right: 0;
     }
     #open {
-        height: 50vh;
+        height: 60vh;
         flex-direction: column;    
     }
     #open .links {
@@ -91,12 +94,12 @@
         width: 100%;
         text-align:center;
         justify-items: right;
+        
     }
     #open .toggleButton svg{
         font-size: 30px;
     }
-    #open .title--navbar {
-        text-align: center;
-    }
+  
+    
 } 
 
