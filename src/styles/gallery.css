@@ -2,8 +2,9 @@
     padding: 10px;
     display: grid;
     grid-template-columns: 
-        repeat(auto-fit, minmax(15rem, 1fr) );
+        repeat(auto-fit, minmax(25rem, 1fr) );
     gap: 1rem;
+    min-height:90vh;
 }
 .gallery--card {
     aspect-ratio: 1 / 1;    
@@ -11,6 +12,7 @@
 .stacked {
     display: grid;
 }
+/* all direct children on stacked */
 .stacked > * {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
