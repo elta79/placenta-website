@@ -16,10 +16,10 @@ function Navbar() {
     }, [location])
 
   return (          
-        <div className='navbar' id={expandNavbar ? 'open' : 'closed'}>
+        <div className='navbar' id={expandNavbar ? 'open' : 'closed'}>            
             <Link to='/' target='_blank' className='title--navbar'>
-                <h3 className='title--navbar'>Placentas by Idai</h3>
-            </Link>
+                <h3 >Placentas by Idai</h3>                    
+            </Link> 
             <div className='toggleButton'>                
                 <button  onClick={() => {
                     setExpandNavbar(prevNavbar => !prevNavbar)
