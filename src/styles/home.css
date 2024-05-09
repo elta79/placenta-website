@@ -111,6 +111,11 @@ ul {
 .services-offered{
     margin:auto;
 }
+
+.fbc-tag{
+    font-size: 14px;
+    padding-top:20px
+}
 .services{
     background: #4A3347;
     margin-top: 0px;   

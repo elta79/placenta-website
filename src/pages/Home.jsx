@@ -69,8 +69,12 @@ function Home() {
 
         <div className='card--home' id='four'>
           <h2 className='card--title'>I'm delivering at the hospital. Can I still encapsulate?</h2>
-          <p className='def'>Yes! Whether you are delivering in the hospital, at home, or at a birthing center, you can still encapsulate your placenta. The hospital does have some requirements, which we can discuss.</p>
-          <p className='def'>You must be Group-B Strep Negative.</p>
+          <p className='def'>Yes! You can encapsulate your placenta whether you are delivering in the hospital, at home, or at a birthing center. The hospital does have some requirements. One of which is:</p>
+         <ul>
+          <li>You must be Group-B Strep negative.</li>
+         </ul>
+          {/* <p className='def'>You must be Group-B Strep Negative.</p> */}
+          <p className='fbc-tag' >Looking for a birth center? Check out the <a href="https://www.naplesbirthcenter.com/" target="_blank">Family Birth Center of Naples</a>.</p>
         </div>
         
       </section>
