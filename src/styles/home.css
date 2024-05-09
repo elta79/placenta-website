@@ -16,6 +16,7 @@ html {
 .hero {
     display: grid;    
     gap: 1rem;
+    padding-bottom: 30px;;
 }
 .contents--hero{    
    color:ivory;   
@@ -23,6 +24,10 @@ html {
 }
 .caption--hero {
     text-shadow: 1px 1px 2px #A84E55;
+}
+.caption--hero p{
+    color:#847469;
+    text-shadow: none;
 }
 .image--hero{
     max-width: 100%;    
@@ -49,43 +54,44 @@ html {
     color:ivory;
 }
 
-.one {
-    display: grid;
-    grid-template-columns: 1fr;
+.one {   
     background: #D8C1B0;
-    padding: 15px;
-    margin-top: 25px;
+    margin: auto;
+    padding: 30px 10%;    
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    
 }
-.card--home{
+.card--home{    
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    
 }
-#one{
-    grid-column: 1;
-    grid-row:1;
+#one{    
     background: ivory;
     padding: 10px 20px;
     margin-bottom: 20px;
 }
 #two{
-    grid-column: 1;
-    grid-row:2;
     background: ivory;
     padding: 10px 20px;
     margin-bottom: 20px;
 }
 #three{
-    grid-column: 1;
-    grid-row:3;
     background: ivory;
     padding: 10px 20px;
     margin-bottom: 20px;
+    
+}
+#four{
+    background: ivory;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    
 }
 .card--title{
     padding: 15px 0;
@@ -102,9 +108,12 @@ ul {
 .bullet {
     font-weight: 700;
 }
+.services-offered{
+    margin:auto;
+}
 .services{
     background: #4A3347;
-    margin-top: 0px;
+    margin-top: 0px;   
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     display: grid;

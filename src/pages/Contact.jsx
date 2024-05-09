@@ -56,6 +56,7 @@ function Contact() {
             firstName:'',
             lastName:'', 
             edd:'',
+            csec:'',
             email:'',
             phone:'',
             address:'',
@@ -201,7 +202,7 @@ function Contact() {
                         required
                     />                   
                 </div>
-                <span>Estimated Due Date or Scheduled C-section</span>
+                <span>Estimated Due Date</span>
                 <input
                     type='date'
                     className='edd'
@@ -209,7 +210,15 @@ function Contact() {
                     value={formData.edd}
                     onChange={handleChange}
                     required
-                />                         
+                />
+                <span>Scheduled C-section Date</span>
+                <input
+                    type='date'
+                    className='csec'
+                    name='csec'
+                    value={formData.csec}
+                    onChange={handleChange}                    
+                />               
                 <hr />
                 <br />
                 <span>Please choose at least one service:</span>
