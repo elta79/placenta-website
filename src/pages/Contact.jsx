@@ -1,11 +1,10 @@
-// HIDE KEY BEFORE GITHUB
-
 import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/contact.css'
 import Select from 'react-select'
 import emailjs from '@emailjs/browser'
 import ReCAPTCHA from 'react-google-recaptcha'
+import Modal from '../components/Modal'
 
 function Contact() {
     
@@ -48,6 +47,7 @@ function Contact() {
             }
         })
     }
+    const [openModal, setOpenModal]= useState(false)
     const [captchaValidated, setCaptchaValidated] = useState(false)
     const [service, setService] = useState([])
     const [condition, setCondition] = useState([])
@@ -79,9 +79,15 @@ function Contact() {
     }
     function handleChangeConditions(selectedOption){
         setCondition(prevCondition => {
+                //iterate array and if value = gbs open modal
+            selectedOption.forEach(condition => {
+                if (condition.value === 'gbs'){
+                    setOpenModal(true)                     
+                }
+            })
             return{
                 ...prevCondition,
-                selectedOption
+                selectedOption                
             }
         })
     }   
@@ -239,8 +245,10 @@ function Contact() {
                     className='condition'
                     value={formData.condition}
                     isMulti
-                    styles={customStyles}
+                    styles={customStyles}                    
                 />    
+                        {/* pass prop setOpenModal as closeModal */}
+                {openModal && <Modal closeModal={setOpenModal}/>}
                 <span>Where do you plan to give birth?:</span>
                 <select 
                     id='location'
@@ -251,6 +259,7 @@ function Contact() {
                     <option value='home'>Home</option>
                     <option value='nch'>North Collier Hospital</option>
                     <option value='healthPark'>Health Park</option>
+                    <option value='other'>Other</option>
                 </select>
                 <span>What is your Baby's sex?:</span>
                 <select 
@@ -290,6 +299,7 @@ function Contact() {
                 </div>
             </div>
         </div>
+        
     </>
   )
 }

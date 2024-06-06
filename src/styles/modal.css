@@ -1,0 +1,33 @@
+.modal-background{
+    margin: auto;  
+    height: 200px;
+    width: 280px; 
+    
+}
+.modal-container{
+    display:flex;
+    flex-direction: row-reverse;
+    align-items:top;
+    background-color:#fdfdfc;
+    padding: 0 15px 0 8px;
+    border:2px solid #4A3347;
+    border-radius: 5px;
+}
+
+.close-modal{
+    height: 24px;
+    width: 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;    
+    color: #c4bdac;
+}
+.close-modal:hover{
+    background-color: transparent;
+    color: #4A3347;
+}
+.content{
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+}
