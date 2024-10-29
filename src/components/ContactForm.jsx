@@ -125,7 +125,7 @@ const ContactForm =()=>{
       alert("Please complete Turnstile verification")
       return
     }
-   
+
     //console.log("Turnstile token:",tokenInput.value)
 
     emailjs.sendForm('contact_service', 'contact_form', form.current, import.meta.env.VITE_EMAILJS_KEY)
@@ -135,7 +135,8 @@ const ContactForm =()=>{
       }, (error) => {
         console.log("EmailJS error:", error.text)
       })     
-  }    
+  }
+  
   return(
     <>
       <form ref={form} onSubmit={handleSubmit}>        
@@ -172,7 +173,7 @@ const ContactForm =()=>{
         <span>Phone Number</span>
         <input
           placeholder='xxx-xxx-xxxx'
-          type='text'
+          type='tel'
           className='phone'
           name='phone'
           value={formData.phone}
@@ -203,6 +204,8 @@ const ContactForm =()=>{
             type='text'
             className='state'
             name='state'
+            minLength={2}
+            maxLength={2}
             value={formData.state}
             onChange={handleChange}
             required
@@ -212,6 +215,8 @@ const ContactForm =()=>{
             type='text'
             className='zip'
             name='zip'
+            minLength={5}
+            maxLength={5}
             value={formData.zip}
             onChange={handleChange}
             required
@@ -290,7 +295,7 @@ const ContactForm =()=>{
         />     
         <div ref={turnstileDivRef} className='cf-turnstile' ></div>           
         <div className='button'>
-          <button id='button--submit'>Submit</button>
+          <button id='button--submit' type="submit">Submit</button>
         </div>
       </form>
     </>

@@ -119,6 +119,13 @@ input:valid, .comments:valid {
 input:focus, .comments:focus {
     outline: 1px dotted gray;
 }
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: #f4eee1 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #f4eee1 inset !important;
+  box-shadow: 0 0 0px 1000px #f4eee1 inset !important;
+}
 span {
     padding-bottom: 15px ;    
 }
