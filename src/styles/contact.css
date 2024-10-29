@@ -1,25 +1,20 @@
-body {
-    height: 100%;
-    background:#c4bdac;
-    margin: 0;    
-}
 .container--form {
     display:grid;
     grid-template-columns: 1fr 1fr;
     background: #e4dac2;    
     justify-items: center;
 }
+.contact--info {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    padding-top:1.5rem;
+    min-width: 60%;
+}
 .contact--image {   
     aspect-ratio: 1 / 1;
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-}
-.contactInfo {
-    grid-column-start: 1;
-    grid-row-start: 1;      
-    margin: 20px;
-    padding:20px 30px;
 }
 .contact--content {
     display: flex;
@@ -30,7 +25,7 @@ body {
     height: 20vh;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 20px;
+    padding: 1.5rem;
 }
 .contact--content a {
     text-decoration: none;
@@ -49,7 +44,6 @@ body {
     text-align: left;
     font-size: calc(25px + 1vw);
 }
-
 #idai {
     font-size: calc(15px + 1vw);
 }
@@ -172,12 +166,14 @@ button:hover {
     color: ivory;
 }
 
-
-
-
-
 /* <--screens under 1020px --> */
 @media only screen and (max-width: 1020px) {
+    
+    .contact--info{
+        margin:1.25rem;
+        min-width:75%;
+        padding:0;
+    }
     .contact--image {   
         aspect-ratio: 1 / 1;    
     }
@@ -230,7 +226,7 @@ button:hover {
         grid-template-columns: 100%;
         
     }
-    .contactInfo {
+    .contact--info {
         grid-column-start: 1;
         grid-row-start: 1;
     }

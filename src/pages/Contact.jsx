@@ -6,7 +6,7 @@ function Contact() {
     <>
         <div className='container--form'>
             <ContactForm />
-            <div className='contactInfo'>
+            <div className='contact--info'>
                 <img src='../images/upclose-placenta.jpeg'alt='placenta and cord' className='contact--image'/>  
                 <div className='contact--content' >          
                     <h4 id='questions'>Questions?</h4>
