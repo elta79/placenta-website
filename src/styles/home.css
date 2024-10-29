@@ -38,6 +38,11 @@ html {
     gap: 1rem;
     padding-top: 30px;
 }
+.services{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 #services--button, #gallery--button, #contact--button{
     background: #A84E55;
     border-radius: 20px;
@@ -124,6 +129,7 @@ ul {
     display: grid;
     grid-template-columns: 
         repeat(auto-fit, minmax(15rem, 1fr)); 
+    align-items: stretch;
 } 
 .services--title {
     background: #4A3347;
@@ -171,5 +177,13 @@ ul {
         grid-column: 2;
         grid-row:3;
     }
+    
   
+}
+
+@media (max-width: 48em) {
+    .services{
+        grid-template-columns:1fr; 
+        padding:1rem;
+    }
 }

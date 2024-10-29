@@ -37,21 +37,29 @@
     display: none;
 }
 
-
 /* <--Screens 600px or less--> */
 @media only screen and (max-width: 600px) {
     .navbar {
-        transition: all .5s ease-in-out; 
+        padding-top:1rem;
+        height: vh;
+        transition: all .5s ease-in-out;
+        inset:0;
+        z-index:1000;
+    }
+    .title--navbar{
+        display: flex;
+        margin:auto;    
     }
     .navbar h3 {
-        margin-left: 0;
+        padding:0;
+        margin:auto;
     }
     .toggleButton {
         display: flex;
         width: 50%;
         height: 100px;
         align-items: center;
-        justify-content: end;        
+        justify-content: end; 
     }
     .toggleButton svg {
         font-size: 50px;
