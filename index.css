@@ -1,9 +1,15 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;   
+  font-weight: 500;
+}
 html{
   overscroll-behavior: none;
+  scroll-behavior: smooth;
 }
 body{
   overscroll-behavior: none;
   height: 100%;
-  background:#c4bdac;
-  margin: 0; 
+  background:#c4bdac; 
 }

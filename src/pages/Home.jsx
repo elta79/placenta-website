@@ -22,7 +22,7 @@ function Home() {
   return (
     <div className='container'>
       <div className='hero'>
-        <img src='../images/placenta-love-paint.png'alt='placenta and cord' className='image--hero'/>   
+        <img src='../images/placenta-love-paint.png'alt='placenta and cord' className='image--hero' loading='lazy'/>   
         <div className='contents--hero'>
           <div className='caption--hero'>
             <h1>Improve your postpartum experience</h1>
