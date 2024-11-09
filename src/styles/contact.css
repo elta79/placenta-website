@@ -70,6 +70,8 @@ form {
 .grid-container-name {
     display: grid;
     column-gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    width:100%;
 }
 .firstName {
     grid-column-start: 1;
@@ -79,10 +81,16 @@ form {
     grid-column-start: 2;
     grid-row-start: 2;
 } 
+.firstName input,
+.lastName input {
+    width: 100%;
+    box-sizing: border-box;
+}
 .grid-container-address {
     display: grid;
     column-gap: 15px ;
-    grid-template-columns: 2fr 60px 1fr;    
+    grid-template-columns: 2fr 60px 1fr;
+    width:100%;  
 }
 .city{
     grid-column-start: 1;
@@ -109,6 +117,8 @@ input {
     border: none;
     background: #f4eee1;    
     font-size:20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 .comments {
     padding: 12px;
@@ -159,6 +169,10 @@ select {
 select:focus{
     outline: 1px dotted gray;
 }
+.comments, select{
+    width:100%;
+    box-sizing: border-box;
+}
 .button {
     display: flex;
     align-items: center;
@@ -180,17 +194,28 @@ button:hover {
 
 /* <--screens under 1020px --> */
 @media only screen and (max-width: 1020px) {
-    /* input, select, .service, .condition, textarea, .button, .cf-turnstile{
-        width:90%;
-    } */
-    .contact--info{
+    .grid-container-name {
+        grid-template-columns: 1fr;
+    }
+    .grid-container-address {
+        grid-template-columns: 1fr; 
+    }
+    .firstName,
+    .lastName {
+        width: 100%; 
+    }
+    .firstName input,
+    .lastName input {
+        width: 100%;
+    }
+    .contact--info{   
         margin:1.25rem;
         max-width:95%;
         /* line-height: 2.75rem;
         padding:0; */
     }
     .contact--image {   
-        aspect-ratio: 1 / 1;        
+        aspect-ratio: 1 / 1;
     }
     /* .contact--link {
         font-size: 1.125rem;        
