@@ -52,7 +52,7 @@
     color:ivory;
 }
 
-.one {   
+.one {
     background: #D8C1B0;
     margin: auto;
     padding: 30px 10%;    
@@ -102,6 +102,7 @@ li {
 }
 ul {
     padding-top: 15px;
+    padding-left: 2rem;;
 }
 .bullet {
     font-weight: 700;
@@ -133,7 +134,7 @@ ul {
     border-top-right-radius: 20px;    
     border-top-left-radius: 20px;    
 }
-
+/* Viewport 640px or more*/
 @media (min-width: 40em) {
     .hero {
         grid-template-columns: 70% 1fr;
@@ -173,10 +174,25 @@ ul {
     
   
 }
-
+/* Viewport 768px or less */
 @media (max-width: 48em) {
     .services{
         grid-template-columns:1fr; 
         padding:1rem;
+    }
+    .one{
+        grid-template-columns: .25fr 1fr .25fr;
+        margin:0;
+        padding:0;
+        background-color: transparent;
+    }
+    #one, #two, #three, #four{
+        padding:1.5rem;
+    }
+    ul{
+        padding-left: 1rem;
+    }
+    .services{
+        padding:0;
     }
 }

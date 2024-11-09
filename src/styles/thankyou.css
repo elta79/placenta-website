@@ -1,10 +1,10 @@
 .container--thankyou{
-    min-height: 100vh;
+	min-height: 100vh;
 }
 
-  .border {
-    position: relative;
-    margin: 200px auto ;
+.border {
+	position: relative;
+	margin: 200px auto ;
 	max-width: 550px;
 	height: 100%;
 	background: linear-gradient(0deg, #000, #272727);
@@ -36,25 +36,38 @@
 	filter: blur(50px);
 }
 .card--thankyou {
-    background-color: ivory;
-    margin: 10vh auto;
-    padding: 40px;
-    line-height: 40px;
-    max-width: 500px;
+	background-color: ivory;
+	margin: 10vh auto;
+	padding: 40px;
+	line-height: 40px;
+	max-width: 500px;
+	text-align: center;
 }
 .container--thankyou h1 {
-    padding-bottom: 15px;
-    text-align: center;
+	padding-bottom: 2.5rem;
+	text-align: center;
 }
 .container--thankyou a {
-    text-decoration: none;
-    text-align: center;
-    padding-left: 25px;
-    color: #4A3347;
-    text-shadow: 0.5px 0.5px 0.5px #A84E55;
-    white-space: nowrap ;
-    font-size: 20px;
+	text-decoration: none;
+	text-align: center;
+	padding-left: 25px;
+	color: #4A3347;
+	text-shadow: 0.5px 0.5px 0.5px #A84E55;
+	white-space: nowrap ;
+	font-size: 20px;
+}
+
+a:hover{
+	color:#A84E55;
 }
 .signature {
-    text-align: right;
+	text-align: right;
+	padding-top: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+	.card--thankyou {
+		padding: 1rem;
+		line-height: 2.5rem;
+	}
 }
