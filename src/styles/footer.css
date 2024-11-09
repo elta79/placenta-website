@@ -23,3 +23,9 @@
 .footer--link:hover {
     color: #A84E55;
 }
+/* <--screens under 1020px --> */
+@media only screen and (max-width: 1020px) {
+    .footer p{
+        font-size:0.75rem;
+    }
+}
