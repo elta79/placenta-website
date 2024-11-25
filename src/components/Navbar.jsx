@@ -16,25 +16,40 @@ function Navbar() {
     }, [location])
 
   return (          
-        <div className='navbar' id={expandNavbar ? 'open' : 'closed'}>            
-            <Link to='/' target='_blank' className='title--navbar'>
-                <h3 >Placentas by Idai</h3>                    
-            </Link> 
-            <div className='toggleButton'>                
-                <button  onClick={() => {
-                    setExpandNavbar(prevNavbar => !prevNavbar)
-                }}>
-                    {expandNavbar===true ? <FontAwesomeIcon icon={faX}></FontAwesomeIcon>:<FontAwesomeIcon icon={faBars}></FontAwesomeIcon>}
-                    
-                   
-                </button>
-            </div>           
-            <div className='links'>                
-                <Link to='/'>Home</Link>
-                <Link to='/gallery'>Gallery</Link>
-                <Link to='/contact'>Contact</Link>            
-            </div>
-        </div>           
+        <header className='navbar' id={expandNavbar ? 'open' : 'closed'}>
+            <nav>
+                <div className='title--container'>
+                    <Link to='/' target='_blank' className='title--navbar'>
+                        Placentas by Idai
+                    </Link> 
+                                    
+                    <button 
+                        className='toggleButton'
+                        onClick={() => setExpandNavbar(prevNavbar => !prevNavbar)}
+                        aria-expanded={expandNavbar}
+                        aria-label={expandNavbar ? 'Close menu' : 'Open menu'}
+                        >
+                        {expandNavbar===true ? (
+                            <FontAwesomeIcon icon={faX} />
+                        ):(
+                            <FontAwesomeIcon icon={faBars}/>
+                        )}
+                    </button>
+                </div>                
+                           
+                <ul className='links' role='menu'>
+                    <li role='menuitem'>
+                        <Link to='/'>Home</Link>
+                    </li> 
+                    <li role='menuitem'>
+                        <Link to='/gallery'>Gallery</Link>
+                    </li> 
+                    <li role='menuitem'>
+                        <Link to='/contact'>Contact</Link>
+                    </li> 
+                </ul>
+            </nav>
+        </header>
   )
 }
 

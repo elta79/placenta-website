@@ -22,12 +22,12 @@ function Home() {
   return (
     <div className='container'>
       <div className='hero'>
-        <img src='../images/placenta-love-paint.png'alt='placenta and cord' className='image--hero' loading='lazy'/>   
+        <img src='../images/placenta-love-paint.png' alt='placenta and cord' className='image--hero'/>   
         <div className='contents--hero'>
           <div className='caption--hero'>
-            <h1>Improve your postpartum experience</h1>
-            <h1>with Naples best placenta services</h1>
-            <p>Serving Collier & Lee Counties (Naples, Bonita Springs, Estero, Fort Myers)</p>
+            <h1>Improve your postpartum experience
+            with Naples best placenta services</h1>
+            <h2>Serving Collier & Lee Counties (Naples, Bonita Springs, Estero, Fort Myers)</h2>
           </div>
           
           <div className='buttons--hero'>

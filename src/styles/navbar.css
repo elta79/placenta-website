@@ -1,111 +1,188 @@
-
-.navbar {    
+.navbar {
+    position: relative;
     width: 100vw;
-    height: 20%;    
-    display: flex;
-    justify-content: space-between;
+    height: 6.75rem;
     align-items: center;
-    margin: 0;
-    background:ivory;    
+    background: ivory;
     color: #4A3347;
+    margin: 0;
+    z-index: 1000;
+    padding:0;
+}
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding:0;
+}
+.title--container{
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 .title--navbar {
-    letter-spacing: 1px;
-    font-size: 35px;
-    width: 100%;
-}
-.links {
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: right;
-    padding-right: 1rem;
-    font-size: 25px;  
+    justify-content: flex-start;
+    padding-left: 1rem;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 1px;
+    width: 100%;
+    height: 100%;
+    text-shadow: 1px 1px 3px #A84E55;
 }
-
 .navbar a {
-    color:#4A3347;
+    color: #4A3347;
     text-decoration: none;
-    margin: 20px;
+    transition: color 0.3s ease;
 }
-
 .navbar a:hover {
     color: #ebcfc4;
 }
+nav ul{
+    padding: 0;
+    display: flex;
+
+}
 .toggleButton {
+    display: flex;
+    width: 25%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    border:none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+.toggleButton svg {
+    font-size: 2.5rem;
+    transition: all .5s ease-in-out;
+    color: #4A3347;
+}
+.toggleButton svg:hover {
+    color: #ebcfc4;
+}
+.toggleButton button {            
+    background-color: transparent;
+    border: none;
+    color: #4A3347;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+.title{
+    color:ivory;        
+}
+.links {
+    display: none;
+    padding-right: 0;
+    list-style-type: none;
+}
+#close .links {
     display: none;
 }
+#open .navbar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100vw;
+}
+#open nav{
+    flex-direction: column;
+    justify-content:flex-start;
+    height: fit-content;
+    background-color: ivory;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+#open .title--container{
+    flex-direction: row;
+}
+#open .toggleButton svg{
+    font-size: 1.50rem;
+}
+#open .links{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    list-style-type: none;
+    width: 100%;
+    height:100%;
+    padding:1rem 0 0 0;
+}
+#open li{
+    font-size: 1.75rem;
+    margin-top:2rem;
+    width:100%;
+}
 
-/* <--Screens 600px or less--> */
-@media only screen and (max-width: 600px) {
-    .navbar {
-        padding-top:1rem;
-        height: vh;
-        transition: all .5s ease-in-out;
-        inset:0;
-        z-index:1000;
+@media (min-width:390px) {
+    .title--navbar {
+        font-size: 2.25rem;
     }
-    .title--navbar{
-        display: flex;
-        margin:auto;    
+}
+@media (min-width:700px) {
+    nav{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }    
+    .title--navbar {
+        margin:0;
+        font-size: 3.25rem;
     }
-    .navbar h3 {
-        padding:0;
-        margin:auto;
+    #open nav{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+    #open .links{
+        flex-direction: row;
+        width:fit-content;
     }
     .toggleButton {
-        display: flex;
-        width: 50%;
-        height: 100px;
-        align-items: center;
-        justify-content: end; 
-    }
-    .toggleButton svg {
-        font-size: 50px;
-        transition: all .5s ease-in-out;
-    }
-    .toggleButton svg:hover {
-        color: #ebcfc4;
-    }
-    .toggleButton button {            
-        background-color: transparent;
-        border: none;
-        color: #4A3347;
-        cursor: pointer;
-        transition: all .5s ease-in-out;
-    }   
-    #close a {
-        display: none; 
-    }
-    .title{
-        color:ivory;        
-    }
-    #close .links {
         display: none;
     }
     .links {
-        display: none;
-        padding-right: 0;
-    }
-    #open {
-        height: 60vh;
-        flex-direction: column;    
-    }
-    #open .links {
-        display:flex;
-        flex-direction: column; 
-    }   
-    #open a {
         width: 100%;
-        text-align:center;
-        justify-items: right;
-        
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding:0;
+        margin:0; 
     }
-    #open .toggleButton svg{
-        font-size: 30px;
+    .links li{
+        padding:0 0 0 1rem;
+        padding-right: 1rem;
+        font-size: 1.5rem;
     }
-  
-    
-} 
-
+}
+@media (min-width:1200px) {
+    .navbar{
+        padding: 0 2% 0 2%;
+    }
+    nav{
+        max-width: 1950px;
+        margin: auto;
+    }
+    .links{
+        font-size: 1.50rem;
+    }
+    .title--navbar{
+        margin:0;
+        font-size: 4rem;
+    }
+    .links li{
+        padding:0 0 0 1rem;
+        padding-right: 1rem;
+        font-size: 1.75rem;
+    }
+}

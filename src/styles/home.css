@@ -1,29 +1,36 @@
-
 .container{
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px;
     max-width: 100%;
     padding: 25px 25px;
 }
-.hero {
-    display: grid;    
-    gap: 1rem;
-    padding-bottom: 30px;;
+.hero{
+    display: flex;
+    flex-direction: column;
 }
-.contents--hero{    
-   color:ivory;   
-   font-size: 18px;
+.image--hero{
+    aspect-ratio: 16/9;
+    max-width:100%;
+    height:auto;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+.contents--hero{
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color:ivory;
 }
 .caption--hero {
     text-shadow: 1px 1px 2px #A84E55;
+    padding: 10px 0 10px 0;
 }
-.caption--hero p{
+.caption--hero h2{
+    padding-top: 20px;
     color:#847469;
     text-shadow: none;
-}
-.image--hero{
-    max-width: 100%;    
+    font-size: 1rem;
 }
 .buttons{
     display: flex;
@@ -31,16 +38,11 @@
     gap: 1rem;
     padding-top: 30px;
 }
-.services{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
 #services--button, #gallery--button, #contact--button{
     background: #A84E55;
-    border-radius: 20px;
+    border-radius: 10px;
     color: ivory;
-    font-size: 20px;
+    font-size: 1.25rem;
     padding: 8px 0;
 }
 .button--home:link {
@@ -51,23 +53,20 @@
     background:#454366;
     color:ivory;
 }
-
 .one {
     background: #D8C1B0;
     margin: auto;
-    padding: 30px 10%;    
+    padding: 10px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    
+    border-bottom-left-radius: 20px;    
 }
 .card--home{    
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    
+    border-bottom-left-radius: 20px;    
 }
 #one{    
     background: ivory;
@@ -82,35 +81,34 @@
 #three{
     background: ivory;
     padding: 10px 20px;
-    margin-bottom: 20px;
-    
+    margin-bottom: 20px;    
 }
 #four{
     background: ivory;
     padding: 10px 20px;
-    margin-bottom: 20px;
-    
 }
 .card--title{
-    padding: 15px 0;
+    padding: 15px 0;    
 }
 .def {
-    font-size: 16px;
+    font-size: 1rem;
 }
 li {
     padding-bottom: 15px;
+    font-size: 1rem;
 }
 ul {
     padding-top: 15px;
     padding-left: 2rem;;
 }
 .bullet {
-    font-weight: 700;
+    font-weight: 900;
+    color:#A84E55;
+    font-size:1.25rem;
 }
 .services-offered{
     margin:auto;
 }
-
 .fbc-tag{
     font-size: 14px;
     padding-top:20px
@@ -134,65 +132,84 @@ ul {
     border-top-right-radius: 20px;    
     border-top-left-radius: 20px;    
 }
-/* Viewport 640px or more*/
-@media (min-width: 40em) {
-    .hero {
-        grid-template-columns: 70% 1fr;
+@media (min-width:700px) {    
+    .caption--hero h1{        
+        font-size:3.5rem;
+        text-align: center;
     }
-    .contents--hero{
-        font-size: 2.25vw;
+    .caption--hero h2{
+        text-align: center;
     }
-    .def {
-        font-size: 20px;
-        line-height: 40px;
-        padding: 20px;
+    .buttons--hero{
+        display: flex;
+        justify-content: center;
     }
-    li {
-        font-size: 20px;
-        line-height: 35px;
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 30px;
+        width:50%;        
+    }
+    .one {
+        padding: 10%;  
     }
     .card--title{
-        font-size: 30px;
+        padding: 15px 0;
+        font-size: 2rem;
     }
-    .one{
-        grid-template-columns: .25fr 1fr .25fr;
-        gap: 30px;
-    }
-    #one {
-        grid-column: 2;
-        grid-row:1;
-        margin-top: 20px;
-    }
-    #two {
-        grid-column: 2;
-        grid-row:2;
-    }
-    #three {
-        grid-column: 2;
-        grid-row:3;
-    }
-    
-  
 }
-/* Viewport 768px or less */
-@media (max-width: 48em) {
-    .services{
-        grid-template-columns:1fr; 
-        padding:1rem;
+
+@media (min-width:1200px) {
+    .hero{
+        flex-direction: row; 
+        max-width: 1500px;
+        margin:auto;
     }
-    .one{
-        grid-template-columns: .25fr 1fr .25fr;
-        margin:0;
+    .image--hero{
+        max-width:70%;
+        height:auto;
+        flex-shrink: 0;
+        object-fit: contain;
+    }
+    .contents--hero{
+        justify-content: space-between;
+    }
+    .caption--hero h1{
+        margin-left:-50%;
+        font-size:3.5rem;
+        text-align:end;
+    }
+    .caption--hero h2{
+        font-size: 1.5rem;
+        padding-top:50px;
+        margin-left:-30px;
+        text-align:end;
+    }
+    .buttons--hero{
+        display: flex;
+        justify-content: end;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: row;        
+        margin-top: 20px;
         padding:0;
-        background-color: transparent;
+        justify-content: space-between;
+        width:100%;
     }
-    #one, #two, #three, #four{
-        padding:1.5rem;
+    .button--home{
+        width:100%;
     }
-    ul{
-        padding-left: 1rem;
+    .one {
+        padding: 50px 10%;
+        font-size: 2rem;
+        max-width:1500px;
     }
-    .services{
-        padding:0;
+    li,.def {
+        font-size: 1.25rem;
+    }
+    .services-offered{
+        max-width: 1500px;
     }
 }

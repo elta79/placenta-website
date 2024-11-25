@@ -52,19 +52,19 @@ const ContactForm =()=>{
   const [turnstileToken, setTurnstileToken] = useState("")
   const [formData, setFormData] = useState(
     {
-        firstName:'',
-        lastName:'', 
-        edd:'',
-        csec:'',
-        email:'',
-        phone:'',
-        address:'',
-        city:'',
-        state:'',
-        zip:'',
-        location:'',
-        sex:'', 
-        comments:''  
+      firstName:'',
+      lastName:'', 
+      edd:'',
+      csec:'',
+      email:'',
+      phone:'',
+      address:'',
+      city:'',
+      state:'',
+      zip:'',
+      location:'',
+      sex:'', 
+      comments:''  
     }
   )
 
@@ -81,16 +81,16 @@ const ContactForm =()=>{
     }
   },[])
 
-  function handleChangeService(selectedOption){        
-    setService(prevService => {
+  const handleChangeService = (selectedOption) => {        
+    setService(prev => {
       return{
-        ...prevService,
+        ...prev,
         selectedOption
       } 
-    })        
+    }) 
   }
-  function handleChangeConditions(selectedOption){
-    setCondition(prevCondition => {
+  const handleChangeConditions=(selectedOption)=>{
+    setCondition(prev => {
       //iterate array and if value = gbs open modal
       selectedOption.forEach(condition => {
         if (condition.value === 'gbs'){
@@ -98,12 +98,12 @@ const ContactForm =()=>{
         }
       })
       return{
-        ...prevCondition,
+        ...prev,
         selectedOption                
       }
     })
   }   
-  function handleChange(event){        
+  const handleChange = (event) => {        
     const { name, value, type } = event.target;
     setFormData(prevFormData => {
       return{
@@ -113,7 +113,7 @@ const ContactForm =()=>{
     })
   }
 
-  function handleSubmit(event){
+  const handleSubmit = (event)=>{
     event.preventDefault()                
     // console.log(formData)
     // console.log(service)
@@ -125,7 +125,6 @@ const ContactForm =()=>{
       alert("Please complete Turnstile verification")
       return
     }
-
     //console.log("Turnstile token:",tokenInput.value)
 
     emailjs.sendForm('contact_service', 'contact_form', form.current, import.meta.env.VITE_EMAILJS_KEY)
@@ -140,159 +139,219 @@ const ContactForm =()=>{
   return(
     <>
       <form ref={form} onSubmit={handleSubmit}>        
-        <h3 className='title--contact'>Contact Form</h3>
-        <div className="grid-container-name">
-          <span id='firstName'>First Name</span>
-          <input
-            type='text'
-            className='firstName'
-            name='firstName'
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-          />
-          <span id='lastName'>Last Name</span>
-          <input
-            type='text'
-            className='lastName'
-            name='lastName'
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-          />                    
-        </div>  
-        <span>Email</span>
-        <input
-          type='email'
-          className='email'
-          name='email'
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <span>Phone Number</span>
-        <input
-          placeholder='xxx-xxx-xxxx'
-          type='tel'
-          className='phone'
-          name='phone'
-          value={formData.phone}
-          onChange={handleChange}
-          required
-        />
-        <span>Address</span>
-        <input
-          type='text'
-          className='address'
-          name='address'
-          value={formData.address}
-          onChange={handleChange}
-          required
-        />                
-        <div className='grid-container-address'>
-          <span id='city'>City</span>
-          <input
-            type='text'
-            className='city'
-            name='city'
-            value={formData.city}
-            onChange={handleChange}
-            required                        
-          />
-        <span id='state'>State</span>
-          <input
-            type='text'
-            className='state'
-            name='state'
-            minLength={2}
-            maxLength={2}
-            value={formData.state}
-            onChange={handleChange}
-            required
-          />
-          <span id='zip'>Zip Code</span>
-          <input
-            type='text'
-            className='zip'
-            name='zip'
-            minLength={5}
-            maxLength={5}
-            value={formData.zip}
-            onChange={handleChange}
-            required
-          />                   
+        <h2 className='title--contact'>Contact Form</h2>
+        <div className="container--name">
+          <label htmlFor='firstName'>
+            First Name
+            <input
+              type='text'
+              className='firstName'
+              id='firstName'
+              name='firstName'
+              value={formData.firstName}
+              onChange={handleChange}
+              required            
+            />
+          </label>
+
+          <label htmlFor='lastName'>
+            Last Name
+            <input
+              type='text'
+              className='lastName'
+              id='lastName'
+              name='lastName'
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+            />
+          </label>
         </div>
-        <span>Estimated Due Date</span>
-        <input
-          type='date'
-          className='edd'
-          name='edd'
-          value={formData.edd}
-          onChange={handleChange}
-          required
-        />
-        <span>Scheduled C-section Date</span>
-        <input
-          type='date'
-          className='csec'
-          name='csec'
-          value={formData.csec}
-          onChange={handleChange}                    
-        />               
+
+        <label htmlFor='email'>
+          Email
+          <input
+            type='email'
+            className='email'
+            id='email'
+            name='email'
+            value={formData.email}
+            onChange={handleChange}
+            required
+            autoComplete='email'
+          />
+        </label>      
+
+        <label htmlFor='phone'>
+          Phone Number
+          <input
+            placeholder='xxx-xxx-xxxx'
+            type='tel'
+            className='phone'
+            id='phone'
+            name='phone'
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            autoComplete='tel'
+          />
+        </label>
+
+        <label htmlFor='address'>
+          Address
+          <input
+            type='text'
+            className='address'
+            id='address'
+            name='address'
+            value={formData.address}
+            onChange={handleChange}
+            required
+            autoComplete='street-address'
+          />
+        </label>
+                 
+        <div className='container--address'>
+          <label htmlFor='city'>
+            City
+            <input
+              type='text'
+              className='city'
+              id='city'
+              name='city'
+              value={formData.city}
+              onChange={handleChange}
+              required                        
+            />
+          </label>
+
+        <label htmlFor='state'>
+          State
+            <input
+              type='text'
+              className='state'
+              id='state'
+              name='state'
+              minLength={2}
+              maxLength={2}
+              value={formData.state}
+              onChange={handleChange}
+              required
+            />
+          </label>
+
+          <label htmlFor='zip'>
+            Zip Code
+            <input
+              type='text'
+              className='zip'
+              id='zip'
+              name='zip'
+              minLength={5}
+              maxLength={5}
+              value={formData.zip}
+              onChange={handleChange}
+              required
+            />
+          </label>
+        </div>
+
+        <label htmlFor='edd'>
+          Estimated Due Date
+          <input
+            type='date'
+            id='edd'
+            className='edd'
+            name='edd'
+            value={formData.edd}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label htmlFor='csec'>
+          Scheduled C-section Date
+          <input
+            type='date'
+            id='csec'
+            className='csec'
+            name='csec'
+            value={formData.csec}
+            onChange={handleChange}                    
+          />
+        </label>            
         <hr />
         <br />
-        <span>Please choose at least one service:</span>
-        <Select
-          options={options}
-          onChange={handleChangeService}
-          name='service'
-          className='service'
-          value={formData.service}
-          isMulti
-          styles={customStyles}
-        />
-        <span>Please select any of the conditions that you have been diagnosed with during this pregnancy:</span>
-        <Select 
-          options={conditions}
-          onChange={handleChangeConditions}
-          name='condition'
-          className='condition'
-          value={formData.condition}
-          isMulti
-          styles={customStyles}                    
-        />    
+        <label htmlFor='service'>
+          <span id="service-label">
+            Please choose at least one service:
+          </span>
+          <Select
+            options={options}
+            onChange={handleChangeService}
+            id='service'
+            name='service'
+            className='service'
+            value={formData.service}
+            isMulti
+            styles={customStyles}
+            aria-labelledby="service-label"
+          />
+        </label>
+        <label htmlFor='condition'>
+          <span id='condition-label'>
+            Please select any of the conditions that you have been diagnosed with during this pregnancy:
+          </span>
+          <Select 
+            options={conditions}
+            onChange={handleChangeConditions}
+            id='condition'
+            name='condition'
+            className='condition'
+            value={formData.condition}
+            isMulti
+            styles={customStyles}    
+            aria-labelledby="condition-label"                
+          />
+        </label>
         {/* pass prop setOpenModal as closeModal */}
         {openModal && <Modal closeModal={setOpenModal}/>}
-        <span>Where do you plan to give birth?:</span>
-        <select 
-          id='location'
-          name='location'
-          value={formData.location}
-          onChange={handleChange}
-        >
-          <option value='home'>Home</option>
-          <option value='nch'>North Collier Hospital</option>
-          <option value='healthPark'>Health Park</option>
-          <option value='other'>Other</option>
-        </select>
-        <span>What is your Baby's sex?:</span>
-        <select 
-          id='sex'
-          name='sex'
-          value={formData.sex}
-          onChange={handleChange}
-        >
-          <option value='surprise'>Surprise</option>
-          <option value='girl'>Girl</option>
-          <option value='boy'>Boy</option>
-        </select>
-        <textarea
-          value={formData.comments}
-          onChange={handleChange}
-          name='comments'
-          className='comments'
-          placeholder='Anything else you would like me to know?'
-        />     
+        <label htmlFor='location'>
+          Where do you plan to give birth?:
+          <select 
+            id='location'
+            name='location'
+            value={formData.location}
+            onChange={handleChange}
+          >
+            <option value='home'>Home</option>
+            <option value='nch'>North Collier Hospital</option>
+            <option value='healthPark'>Health Park</option>
+            <option value='other'>Other</option>
+          </select>
+        </label>
+        <label htmlFor='sex'>
+          What is your Baby's sex?:
+          <select 
+            id='sex'
+            name='sex'
+            value={formData.sex}
+            onChange={handleChange}
+          >
+            <option value='surprise'>Surprise</option>
+            <option value='girl'>Girl</option>
+            <option value='boy'>Boy</option>
+          </select>
+        </label>
+        <label htmlFor='comments'>
+          <textarea
+            value={formData.comments}
+            onChange={handleChange}
+            id='comments'
+            name='comments'
+            className='comments'
+            placeholder='Anything else you would like me to know?'
+          />   
+        </label>  
         <div ref={turnstileDivRef} className='cf-turnstile' ></div>           
         <div className='button'>
           <button id='button--submit' type="submit">Submit</button>
