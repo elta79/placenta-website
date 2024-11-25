@@ -15,8 +15,14 @@ function Navbar() {
         setExpandNavbar(false)
     }, [location])
 
-  return (          
+    return (
         <header className='navbar' id={expandNavbar ? 'open' : 'closed'}>
+        {expandNavbar && (
+            <div
+                id="overlay"
+                onClick={() => setExpandNavbar(false)} /* Close menu on overlay click */
+            ></div>
+        )}
             <nav>
                 <div className='title--container'>
                     <Link to='/' target='_blank' className='title--navbar'>
@@ -35,8 +41,7 @@ function Navbar() {
                             <FontAwesomeIcon icon={faBars}/>
                         )}
                     </button>
-                </div>                
-                           
+                </div>
                 <ul className='links' role='menu'>
                     <li role='menuitem'>
                         <Link to='/'>Home</Link>
@@ -50,7 +55,7 @@ function Navbar() {
                 </ul>
             </nav>
         </header>
-  )
+    )
 }
 
 export default Navbar

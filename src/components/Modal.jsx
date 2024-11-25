@@ -15,8 +15,7 @@ function Modal({closeModal}){
                 </div>
                 <button className='close-modal-button' onClick={handleClick}>Got it!</button>
             </div>
-        </div>
-        
+        </div>        
     )
 }
 
