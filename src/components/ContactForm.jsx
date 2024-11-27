@@ -67,6 +67,48 @@ const ContactForm =()=>{
       comments:''  
     }
   )
+  const [errors, setErrors]= useState({})
+
+  const validateField = (name, value) =>{
+    let error=''
+    switch(name){
+      case "firstName":
+        if(!value.trim()) error ='First name is required.'
+        break;
+      case "lastName":
+        if(!value.trim()) error ='Last name is required.'
+        break;
+      case 'email':
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+          error = "Invalid email address.";
+        break;
+        case "phone":
+          if (!/^\d{3}-\d{3}-\d{4}$/.test(value))
+            error = "Phone number must be in the format xxx-xxx-xxxx.";
+          break;
+        case "address":
+          if (!value.trim()) error = "Address is required.";
+          break;
+        case "city":
+          if (!value.trim()) error = "City is required.";
+          break;
+        case "state":
+          if (!/^[A-Za-z]{2}$/.test(value)) error = "State must be 2 letters.";
+          break;
+        case "zip":
+          if (!/^\d{5}$/.test(value)) error = "Zip code must be 5 digits.";
+          break;
+        case "edd":
+          if(!value) error = "EDD is required."
+          break;
+        default:
+          break;
+    }
+    setErrors(prevErrors =>({
+      ...prevErrors,
+      [name]: error,
+    }))
+  }
 
   useEffect(()=>{
     if(window.turnstile && !window.turnstile.hasRendered){
@@ -102,7 +144,11 @@ const ContactForm =()=>{
         selectedOption                
       }
     })
-  }   
+  }
+  const handleBlur = (e) =>{
+    const {name, value} = e.target
+    validateField(name, value)
+  }
   const handleChange = (event) => {        
     const { name, value, type } = event.target;
     setFormData(prevFormData => {
@@ -150,8 +196,10 @@ const ContactForm =()=>{
               name='firstName'
               value={formData.firstName}
               onChange={handleChange}
+              onBlur={handleBlur}
               required            
             />
+            {errors.firstName && <span className="error">{errors.firstName}</span>}
           </label>
 
           <label htmlFor='lastName'>
@@ -163,8 +211,10 @@ const ContactForm =()=>{
               name='lastName'
               value={formData.lastName}
               onChange={handleChange}
+              onBlur={handleBlur}
               required
             />
+            {errors.lastName && <span className="error">{errors.lastName}</span>}
           </label>
         </div>
 
@@ -177,9 +227,11 @@ const ContactForm =()=>{
             name='email'
             value={formData.email}
             onChange={handleChange}
+            onBlur={handleBlur}
             required
             autoComplete='email'
           />
+          {errors.email && <span className="error">{errors.email}</span>}
         </label>      
 
         <label htmlFor='phone'>
@@ -192,9 +244,11 @@ const ContactForm =()=>{
             name='phone'
             value={formData.phone}
             onChange={handleChange}
+            onBlur={handleBlur}
             required
             autoComplete='tel'
           />
+          {errors.phone && <span className="error">{errors.phone}</span>}
         </label>
 
         <label htmlFor='address'>
@@ -206,9 +260,11 @@ const ContactForm =()=>{
             name='address'
             value={formData.address}
             onChange={handleChange}
+            onBlur={handleBlur}
             required
             autoComplete='street-address'
           />
+          {errors.address && <span className="error">{errors.address}</span>}
         </label>
                  
         <div className='container--address'>
@@ -221,8 +277,10 @@ const ContactForm =()=>{
               name='city'
               value={formData.city}
               onChange={handleChange}
+              onBlur={handleBlur}
               required                        
             />
+            {errors.city && <span className="error">{errors.city}</span>}
           </label>
 
         <label htmlFor='state'>
@@ -236,8 +294,10 @@ const ContactForm =()=>{
               maxLength={2}
               value={formData.state}
               onChange={handleChange}
+              onBlur={handleBlur}
               required
             />
+            {errors.state && <span className="error">{errors.state}</span>}
           </label>
 
           <label htmlFor='zip'>
@@ -251,8 +311,10 @@ const ContactForm =()=>{
               maxLength={5}
               value={formData.zip}
               onChange={handleChange}
+              onBlur={handleBlur}
               required
             />
+            {errors.zip && <span className="error">{errors.zip}</span>}
           </label>
         </div>
 
@@ -265,8 +327,10 @@ const ContactForm =()=>{
             name='edd'
             value={formData.edd}
             onChange={handleChange}
+            onBlur={handleBlur}
             required
           />
+          {errors.edd && <span className="error">{errors.edd}</span>}
         </label>
         <label htmlFor='csec'>
           Scheduled C-section Date
