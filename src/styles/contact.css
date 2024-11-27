@@ -145,6 +145,11 @@ button {
 button:hover {
     color: ivory;
 }
+.error {
+    color: red;
+    font-size: 0.875rem;
+    margin: 0 0 0.5rem 0.5rem;
+  }
 
 @media (min-width:700px) {  
     .container--form {
