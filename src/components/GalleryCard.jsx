@@ -5,7 +5,7 @@ import '../styles/gallery.css'
 function GalleryCard(props) {
   return (
     <div className='gallery--card stacked'>
-        <img src={`../images/${props.image}`} className='gallery--image'  />
+        <img src={`../images/${props.image}`} className='gallery--image' alt={props.number} />
         <h3 className='gallery--number'>{props.number} </h3>
         
     </div>
