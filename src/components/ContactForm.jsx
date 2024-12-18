@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import '../styles/contact.css'
 import Select from 'react-select'
+import CreatableSelect from 'react-select/creatable'
 import emailjs from '@emailjs/browser'
 import Modal from '../components/Modal'
 import { useEffect, useRef, useState } from 'react'
@@ -144,7 +145,7 @@ const ContactForm =()=>{
       //iterate array and if value = gbs open modal
       selectedOption.forEach(condition => {
         if (condition.value === 'gbs'){
-            setOpenModal(true)                     
+          setOpenModal(true)                     
         }
       })
       return{
@@ -383,9 +384,9 @@ const ContactForm =()=>{
         </label>
         <label htmlFor='condition'>
           <span id='condition-label'>
-            Please select any of the conditions that you have been diagnosed with during this pregnancy:
+            Please select any of the conditions that you have been diagnosed with during this pregnancy. If your condition is not listed, please <span className='bold'>type it here</span>:
           </span>
-          <Select 
+          <CreatableSelect
             options={conditions}
             onChange={handleChangeConditions}
             onBlur={()=> handleBlur({target:{name:'condition'}})}
