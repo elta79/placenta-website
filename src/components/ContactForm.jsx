@@ -23,6 +23,7 @@ const ContactForm =()=>{
     { value: 'diabetes', label: 'Diabetes' },
     { value: 'gest_Diabetes', label: 'Gestational diabetes' },
     { value: 'hepatitis', label: 'Hepatitis A, B, C' },
+    { value: 'herpes' , label: 'herpes simplex virus (HSV)'},
     { value: 'other', label: 'Other' },        
   ]
 
@@ -68,6 +69,13 @@ const ContactForm =()=>{
     }
   )
   const [errors, setErrors]= useState({})
+
+  const updateErrorState = (fieldName, hasError, errorMessage="") =>{
+    setErrors(prevErrors => ({
+      ...prevErrors,
+      [fieldName]: hasError ? errorMessage : "",
+    }))
+  }
 
   const validateField = (name, value) =>{
     let error=''
@@ -147,8 +155,16 @@ const ContactForm =()=>{
   }
   const handleBlur = (e) =>{
     const {name, value} = e.target
-    validateField(name, value)
+
+    if (name === "condition"){
+      updateErrorState("condition", condition.length === 0, "Value is required.")
+    }else if (name === 'service'){
+      updateErrorState("service", service.length === 0, "Value is required.")
+    }else{
+      validateField(name, value)
+    }
   }
+
   const handleChange = (event) => {        
     const { name, value, type } = event.target;
     setFormData(prevFormData => {
@@ -160,7 +176,7 @@ const ContactForm =()=>{
   }
 
   const handleSubmit = (event)=>{
-    event.preventDefault()                
+    event.preventDefault()
     // console.log(formData)
     // console.log(service)
     // console.log(condition)
@@ -352,14 +368,18 @@ const ContactForm =()=>{
           <Select
             options={options}
             onChange={handleChangeService}
+            onBlur={()=> handleBlur({target:{name:'service'}})}
             id='service'
             name='service'
+            required
             className='service'
             value={formData.service}
             isMulti
             styles={customStyles}
             aria-labelledby="service-label"
+            aria-required="true"
           />
+          {errors.service && <span className="error">{errors.service}</span>}  
         </label>
         <label htmlFor='condition'>
           <span id='condition-label'>
@@ -368,14 +388,18 @@ const ContactForm =()=>{
           <Select 
             options={conditions}
             onChange={handleChangeConditions}
+            onBlur={()=> handleBlur({target:{name:'condition'}})}
             id='condition'
             name='condition'
+            required
             className='condition'
             value={formData.condition}
             isMulti
             styles={customStyles}    
-            aria-labelledby="condition-label"                
+            aria-labelledby="condition-label"
+            aria-required="true"
           />
+          {errors.condition && <span className="error">{errors.condition}</span>}         
         </label>
         {/* pass prop setOpenModal as closeModal */}
         {openModal && <Modal closeModal={setOpenModal}/>}
