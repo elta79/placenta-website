@@ -26,7 +26,7 @@ function Navbar() {
             <nav>
                 <div className='title--container'>
                     <Link to='/' target='_blank' className='title--navbar'>
-                        <img className='logo' src='./public/images/logo300.png'/>
+                        <img className='logo' src='../images/logo300.png'/>
                         <p className='title-nav'>Placentas by Idai</p>
                     </Link> 
                                     
