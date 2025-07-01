@@ -66,7 +66,8 @@ const ContactForm =()=>{
       zip:'',
       location:'',
       sex:'', 
-      comments:''  
+      comments:'',
+      referral:''
     }
   )
   const [errors, setErrors]= useState({})
@@ -108,7 +109,10 @@ const ContactForm =()=>{
           if (!/^\d{5}$/.test(value)) error = "Zip code must be 5 digits.";
           break;
         case "edd":
-          if(!value) error = "EDD is required."
+          if (!value) error = "EDD is required."
+          break;
+        case "referral":
+          if (!value.trim()) error = "This is required.";
           break;
         default:
           break;
@@ -431,6 +435,20 @@ const ContactForm =()=>{
             <option value='boy'>Boy</option>
           </select>
         </label>
+        <label htmlFor='referral'>
+            How did you hear about Placenta's by Idai?
+            <input
+              type='text'
+              className='referral'
+              id='referral'
+              name='referral'
+              value={formData.referral}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              required            
+            />
+            {errors.referral && <span className="error">{errors.referral}</span>}
+          </label>
         <label htmlFor='comments'>
           <textarea
             value={formData.comments}

@@ -1,7 +1,7 @@
 export default [
     {
         title: 'Encapsulation',
-        price: '$ 250',
+        price: '$ 325',
         description: 'Your placenta transformed into a postpartum remedy as unique as you are!  With proper training and certified experience, I will sanitize the placenta, dehydrate it, and grind it into a fine powder.  The power is packed into capsules and returned to you in an easy to swallow form.',
         image: 'caps02.png'
     },
