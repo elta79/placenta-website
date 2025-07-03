@@ -12,7 +12,7 @@ const ContactForm =()=>{
   const navigate = useNavigate()
  
   const options = [
-    { value: 'Encapsulation', label: 'Encapsulation  $250' },
+    { value: 'Encapsulation', label: 'Encapsulation  $325' },
     { value: 'Print_Blood', label: 'Blood Print  $15' },
     { value: 'Print_Color', label: 'Color Print  $20' },
     { value: 'Framed_Print', label: 'Framed Print  $50' },
